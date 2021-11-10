@@ -68,13 +68,14 @@
         }
         
         #bottom {
-            height: 50px;
             border-bottom-right-radius: 20px;
             border-bottom-left-radius: 20px;
         }
         
+		#player { 
+			width: 90%; 
+		}​
         audio {
-			width: auto;
             outline: none;
         }
     </style>
@@ -103,10 +104,13 @@
 
         function playMusic(a) {
             let myAudio = document.createElement('audio'); //建立audio元件
+			myAudio.setAttribute("id", "player");
             myAudio.setAttribute("src", "music/" + a + ".mp3"); //src 音檔路徑，a為傳入的歌曲名稱
             myAudio.setAttribute("controls", "controls"); //顯示撥放器
+			myAudio.setAttribute("loop", "loop");
             bottom.appendChild(myAudio); //加入在id名稱為bottom的元件裡
             myAudio.play(); //播放音樂
+			
         }
 
         function randomPlay() {
