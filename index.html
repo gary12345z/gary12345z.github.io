@@ -6,7 +6,7 @@
     <title>Music Player</title>
     <style>
         #musicBoard {
-            width: 400px;
+            width: auto;
             /* border: 10px solid 827081; */
             text-align: center;
             margin: auto;
@@ -74,6 +74,7 @@
         }
         
         audio {
+			width: auto;
             outline: none;
         }
     </style>
@@ -133,21 +134,28 @@
 			<li>09 ときめき</li>
 			<li>10 旅路(妹)</li>
 			<li>11 旅路(初出社)</li>
+			<li>001</li>
+			<li>002</li>
+			<li>003</li>
+			<li>004</li>
+			<li>005</li>
+			<li>006</li>
+			<li>007</li>
         </ul>
         <div id="bottom"></div>
     </div>
-	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-  </script>
-  <title></title>
-</head>
-<body>
-  <h1>Listing /music</h1><!-- Custom Script (defered load, after dom ready) -->
-  <script>
-    $.getJSON('./music', data => {
-        console.log(data); 
-    });
-  </script>
+	<pre id="file-contents"></pre>
+	<script>
+		var rawFile = new XMLHttpRequest();
+  rawFile.open("GET", "index.html", true);
+  rawFile.onreadystatechange = function() {
+    if (rawFile.readyState === 4) {
+      var allText = rawFile.responseText;
+      document.getElementById("textSection").innerHTML = allText;
+    }
+  }
+  rawFile.send();
+</script>
 	
 </body>
 
